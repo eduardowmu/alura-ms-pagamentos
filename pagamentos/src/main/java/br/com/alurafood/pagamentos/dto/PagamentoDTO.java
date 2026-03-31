@@ -31,7 +31,6 @@ public record PagamentoDTO(
         @Size(min=3, max=3)
         String codigo,
 
-        @NotNull
         Status status,
 
         @NotNull
