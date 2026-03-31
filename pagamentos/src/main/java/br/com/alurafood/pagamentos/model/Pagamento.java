@@ -1,5 +1,7 @@
 package br.com.alurafood.pagamentos.model;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -7,6 +9,7 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
+@DynamicUpdate
 @Entity
 @Table(name = "pagamentos")
 public class Pagamento {
