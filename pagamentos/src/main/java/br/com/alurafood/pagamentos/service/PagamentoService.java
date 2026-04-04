@@ -68,4 +68,11 @@ public class PagamentoService {
         pedidoClient.atualizaPagamento(pagamento.get().getPedidoId());
     }
 
+    public void alteraStatus(Long id) {
+        Pagamento pagamento = pagamentoRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Pagamento %d não encontrado", id)));
+
+        pagamento.setStatus(Status.CONFIRMADO_SEM_INTEGRACAO);
+        pagamentoRepository.save(pagamento);
+    }
 }
