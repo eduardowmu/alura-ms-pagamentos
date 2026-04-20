@@ -46,7 +46,7 @@ public class PagamentoController {
 
         Message message = new Message(String.format("Criei um pagamento com o id %d", response.id()).getBytes());
 
-        this.rabbitTemplate.convertAndSend("", "pagamento.concluido", response);
+        this.rabbitTemplate.convertAndSend("pagamentos.ex", "", response);
 
         return ResponseEntity.created(endereco).body(response);
     }
